@@ -100,6 +100,11 @@ def page_home(lang):
         for i, (s, d) in enumerate(t["steps"], 1)
     )
     chips = "".join(f"<li>{r}</li>" for r in t["range"])
+    allm = MEMBERS["asia"][:1] + MEMBERS["europe"][:2] + MEMBERS["europe"][2:] + MEMBERS["asia"][1:]
+    strip = "".join(
+        f'<li><a href="#{m["id"]}" title="{m["name"]}"><img src="/assets/img/{m["logo"]}" alt="{m["name"]}" loading="lazy" decoding="async"></a></li>'
+        for m in allm
+    )
     cat_imgs = ["cat-bettwaren.webp", "cat-matratzenzubehoer.webp", "cat-promo.webp"]
     cats = "".join(
         f'<figure class="cat"><img src="/assets/img/{img}" alt="" loading="lazy" decoding="async"><figcaption>{name}</figcaption></figure>'
@@ -133,6 +138,10 @@ def page_home(lang):
       <img src="/assets/img/hero-3.webp" alt="" width="1471" height="860" loading="lazy">
     </div>
   </div>
+</section>
+
+<section class="logostrip" aria-label="{t['nav']['netzwerk']}">
+  <div class="wrap"><ul>{strip}</ul></div>
 </section>
 
 <section class="network" id="netzwerk" aria-label="{t['nav']['netzwerk']}">
