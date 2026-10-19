@@ -35,3 +35,14 @@ public/             Fertige Website – genau das landet auf dem Server
 1. In `.cpanel.yml` `DEPLOYPATH` auf `/home/nagroup/public_html/` setzen.
 2. Vorher altes WordPress aus `public_html` sichern und entfernen.
 3. Platzhalter in Impressum/Datenschutz `[...]` ausfüllen.
+
+## Bilder (wichtig)
+
+Die Bilder in `public/assets/img/` (Logos, Fotos, Titelbilder) stammen von der alten Website und liegen
+**nur auf dem Server**, nicht in GitHub:
+
+- `/home/nagroup/repositories/nagroup-website/public/assets/img/` (wird bei jedem Deploy mitkopiert)
+- `/home/nagroup/neu.nagroup.biz/assets/img/`
+
+Empfehlung: den Ordner einmal im cPanel-Dateimanager als ZIP herunterladen und per GitHub
+„Add file → Upload files“ nach `public/assets/img/` hochladen – dann ist alles versioniert.

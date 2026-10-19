@@ -56,7 +56,7 @@ def header(lang, onepage=True):
     return f"""<a class="skip" href="#main">{t['skip']}</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="/{lang}/">NA<span>/</span>Group</a>
+    <a class="logo" href="/{lang}/"><img src="/assets/img/na-logo.webp" width="52" height="45" alt="NA Group – Natural Advantage"></a>
     <nav class="nav" aria-label="{t['nav']['netzwerk']}">{nav}</nav>
     <div class="lang">{langs}</div>
   </div>
@@ -84,7 +84,7 @@ def members(lang, region):
         since = f"<p>{t['since'].format(y=m['since'])}</p>" if m["since"] else ""
         addr = "<br>".join(m["address"])
         out.append(f"""<details class="member" id="{m['id']}">
-  <summary><span>{m['name']}</span><span class="loc">{t['loc'][m['id']]}</span></summary>
+  <summary><span class="mlogo"><img src="/assets/img/{m['logo']}" alt="" loading="lazy" decoding="async"></span><span class="mname">{m['name']}</span><span class="loc">{t['loc'][m['id']]}</span></summary>
   <div class="body">
     <p>{t['about'][m['id']]}</p>{since}
     <address>{addr}<br><a href="mailto:{m['email']}">{m['email']}</a></address>
@@ -100,10 +100,15 @@ def page_home(lang):
         for i, (s, d) in enumerate(t["steps"], 1)
     )
     chips = "".join(f"<li>{r}</li>" for r in t["range"])
+    cat_imgs = ["cat-bettwaren.webp", "cat-matratzenzubehoer.webp", "cat-promo.webp"]
+    cats = "".join(
+        f'<figure class="cat"><img src="/assets/img/{img}" alt="" loading="lazy" decoding="async"><figcaption>{name}</figcaption></figure>'
+        for img, name in zip(cat_imgs, t["cats"])
+    )
     facts = "".join(f"<li><strong>{a}</strong><span>{b}</span></li>" for a, b in t["facts"])
     paras = "".join(f"<p>{p}</p>" for p in t["company_p"])
     people = "".join(
-        f'<div class="person"><strong>{c["name"]}</strong><span>{t["ceo"]}</span>'
+        f'<div class="person"><img class="avatar" src="/assets/img/{c["photo"]}" width="80" height="80" alt="{c["name"]}" loading="lazy"><strong>{c["name"]}</strong><span>{t["ceo"]}</span>'
         f'<a href="tel:{c["phone"].replace(" ", "")}">{c["phone"]}</a><br>'
         f'<a href="mailto:{c["email"]}">{c["email"]}</a></div>'
         for c in CEOS
@@ -115,11 +120,18 @@ def page_home(lang):
     return head(lang, t["title"], t["description"], f"/{lang}/") + header(lang) + f"""
 <main id="main">
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">{t['eyebrow']}</p>
-    <h1>{t['h1']}</h1>
-    <p class="lead">{t['lead']}</p>
-    <div class="btns"><a class="btn btn-primary" href="#kontakt">{t['cta1']}</a><a class="btn" href="#netzwerk">{t['cta2']}</a></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">{t['eyebrow']}</p>
+      <h1>{t['h1']}</h1>
+      <p class="lead">{t['lead']}</p>
+      <div class="btns"><a class="btn btn-primary" href="#kontakt">{t['cta1']}</a><a class="btn" href="#netzwerk">{t['cta2']}</a></div>
+    </div>
+    <div class="hero-media" role="img" aria-label="{t['hero_alt']}">
+      <img src="/assets/img/hero-2.webp" alt="" width="1599" height="869" fetchpriority="high">
+      <img src="/assets/img/hero-1.webp" alt="" width="1600" height="1068" loading="lazy">
+      <img src="/assets/img/hero-3.webp" alt="" width="1471" height="860" loading="lazy">
+    </div>
   </div>
 </section>
 
@@ -152,6 +164,7 @@ def page_home(lang):
 <section class="section" id="sortiment" style="padding-top:0">
   <div class="wrap">
     <h2>{t['range_h']}</h2>
+    <div class="cats">{cats}</div>
     <ul class="chips">{chips}</ul>
   </div>
 </section>
