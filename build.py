@@ -4,6 +4,7 @@
 Aufruf:  python3 build.py
 Danach Änderungen committen und pushen – der Server holt sie per cPanel-Git ab.
 """
+import hashlib
 import os
 import sys
 
@@ -12,6 +13,12 @@ from content import LANGS, LANG_LABEL, CEOS, HQ, MEMBERS, T  # noqa: E402
 
 BASE = "https://nagroup.biz"
 OUT = os.path.join(os.path.dirname(__file__), "public")
+def ver(rel):
+    """Kurzer Inhalts-Hash als Cache-Buster, z. B. style.css?v=1a2b3c4d."""
+    with open(os.path.join(OUT, rel.lstrip("/")), "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()[:8]
+
+
 LEGAL = {  # Sprache -> (Impressum-Datei, Datenschutz-Datei)
     "de": ("impressum.html", "datenschutz.html"),
     "en": ("legal-notice.html", "privacy.html"),
@@ -40,7 +47,7 @@ def head(lang, title, desc, path):
 <link rel="alternate" hreflang="x-default" href="{BASE}/en/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={ver('/assets/css/style.css')}">
 </head>
 <body>"""
 
@@ -71,7 +78,7 @@ def footer(lang):
     <nav aria-label="{t['imprint']}"><a href="{legal_link(lang, 0)}">{t['imprint']}</a><a href="{legal_link(lang, 1)}">{t['privacy_short']}</a></nav>
   </div>
 </footer>
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v={ver('/assets/js/main.js')}" defer></script>
 </body>
 </html>
 """
