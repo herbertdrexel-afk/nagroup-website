@@ -146,3 +146,9 @@ img{max-width:100%;display:block}
 .cat figcaption{padding:16px 20px;font-family:var(--display);font-weight:600;font-size:20px}
 .avatar{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:14px;background:var(--line)}
 @media (max-width:600px){.mlogo{flex-basis:52px;height:34px}.member summary{gap:10px}}
+.logostrip{background:#fff;padding:28px 0}
+.logostrip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;align-items:center}
+.logostrip a{display:flex;align-items:center;justify-content:center;height:84px;padding:8px;border-radius:10px;transition:background .2s}
+.logostrip a:hover{background:#f2f5f9}
+.logostrip img{max-height:68px;max-width:100%;object-fit:contain}
+.network{padding-top:72px}
