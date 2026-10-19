@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    # Zielordner der Website. Testphase: neu.nagroup.biz
+    # Für den Livegang auf /home/nagroup/public_html/ umstellen.
+    - export DEPLOYPATH=/home/nagroup/neu.nagroup.biz/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R public/. $DEPLOYPATH
