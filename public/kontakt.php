@@ -7,10 +7,10 @@ $LANGS     = ['de', 'en', 'es', 'zh'];
 // -----------------------
 
 $lang = in_array($_POST['lang'] ?? '', $LANGS, true) ? $_POST['lang'] : 'de';
-$back = '/' . $lang . '/';
+$back = '/' . $lang . '/contact.html';
 
 function done($back, $ok) {
-    header('Location: ' . $back . ($ok ? '?sent=1' : '?error=1') . '#kontakt', true, 303);
+    header('Location: ' . $back . ($ok ? '?sent=1' : '?error=1') . '#formular', true, 303);
     exit;
 }
 function clean($s, $max) {
