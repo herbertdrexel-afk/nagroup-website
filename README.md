@@ -9,7 +9,8 @@ Kein WordPress, keine Datenbank, keine Cookies, kein Tracking.
 src/content.py      Alle Texte und Daten (hier ändern)
 build.py            Erzeugt die HTML-Seiten in public/
 public/             Fertige Website – genau das landet auf dem Server
-  de/ en/ es/ zh/   Sprachversionen (index.html + Impressum/Datenschutz für de/en)
+  de/ en/ es/ zh/   Sprachversionen: index, company, advantages, products (+ products/<id>.html),
+                    sourcing (+ sourcing/<firma>.html), contact; Impressum/Datenschutz in de/ und en/
   assets/           CSS, JS, Schriften (lokal, DSGVO-freundlich), Favicon
   kontakt.php       Kontaktformular (Empfänger oben in der Datei)
   .htaccess         HTTPS, Sprachweiche, Sicherheits-Header
