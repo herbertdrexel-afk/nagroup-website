@@ -6,31 +6,31 @@ LANG_LABEL = {"de": "DE", "en": "EN", "es": "ES", "zh": "中文"}
 
 # Sprachunabhängige Daten
 CEOS = [
-    {"name": "Rolf Neidhart", "phone": "+41 79 600 20 19", "email": "r.neidhart@nagroup.biz"},
-    {"name": "Markus Veutgen", "phone": "+49 172 25 33 298", "email": "m.veutgen@nagroup.biz"},
+    {"name": "Rolf Neidhart", "photo": "ceo-rolf-neidhart.webp", "phone": "+41 79 600 20 19", "email": "r.neidhart@nagroup.biz"},
+    {"name": "Markus Veutgen", "photo": "ceo-markus-veutgen.webp", "phone": "+49 172 25 33 298", "email": "m.veutgen@nagroup.biz"},
 ]
 HQ = ["Neidhart &amp; Arbenz AG", "Tüfenwiesstrasse 14 A", "9524 Zuzwil SG", "Schweiz / Switzerland"]
 
 MEMBERS = {
     "europe": [
-        {"id": "stan-ro", "name": "STAN RO", "since": 2013,
+        {"id": "stan-ro", "logo": "logo-stan-ro.webp", "name": "STAN RO", "since": 2013,
          "address": ["Stan RO Logistics &amp; Services SRL", "Rennes street 21", "550006 Sibiu, Romania"],
          "email": "a.negrea@nagroup.biz"},
-        {"id": "stan-mk", "name": "STAN MK", "since": 2015,
+        {"id": "stan-mk", "logo": "logo-stan-mk.webp", "name": "STAN MK", "since": 2015,
          "address": ["STAN MK", "Dimitrie Chupovski 38", "7500 Prilep, North Macedonia"],
          "email": "s.chadamov@nagroup.biz"},
-        {"id": "gewohnheit", "name": "gewohnheit", "since": None,
+        {"id": "gewohnheit", "logo": "logo-gewohnheit.webp", "name": "gewohnheit", "since": None,
          "address": ["gewohnheit GmbH", "Moritzstraße 54-56", "45131 Essen, Germany"],
          "email": "markus.veutgen@meine-gewohnheit.de"},
-        {"id": "amv", "name": "AMV Ltd.", "since": None,
+        {"id": "amv", "logo": "logo-amv.webp", "name": "AMV Ltd.", "since": None,
          "address": ["AMV Ltd.", "10 Hugh Hallett Street", "SLM 3143 Sliema, Malta"],
          "email": "amv@nagroup.biz"},
     ],
     "asia": [
-        {"id": "stan-asia", "name": "STAN Asia", "since": 2003,
+        {"id": "stan-asia", "logo": "logo-stan-asia.webp", "name": "STAN Asia", "since": 2003,
          "address": ["Rm 02-107, WeWork", "No. 588 Yan'an Dong Road", "200001 Shanghai, China"],
          "email": "n.jin@nagroup.biz"},
-        {"id": "texpack", "name": "TexPack Ltd.", "since": None,
+        {"id": "texpack", "logo": "logo-texpack.webp", "name": "TexPack Ltd.", "since": None,
          "address": ["TexPack Limited", "1018A Ocean Center, 5 Canton Road", "Kowloon, Hong Kong"],
          "email": "howard@nagroup.biz"},
     ],
@@ -39,6 +39,8 @@ MEMBERS = {
 T = {}
 
 T["de"] = {
+    "cats": ["Bettwaren", "Matratzenzubehör", "Werbe- &amp; Promotionsartikel"],
+    "hero_alt": "Schlafzimmer mit Bett, Kissen und Decken",
     "title": "NA Group – Beschaffung für die Bettwaren- und Matratzenindustrie",
     "description": "Die NA Group liefert Komponenten und fertige Produkte aus Asien und Osteuropa an die Bettwaren- und Matratzenindustrie – mit eigenen Büros vor Ort und persönlicher Betreuung.",
     "skip": "Zum Inhalt springen",
@@ -95,6 +97,8 @@ T["de"] = {
 }
 
 T["en"] = {
+    "cats": ["Bedding", "Mattress accessories", "Promotional items"],
+    "hero_alt": "Bedroom with bed, pillows and duvets",
     "title": "NA Group – Sourcing for the bedding and mattress industry",
     "description": "NA Group supplies components and finished products from Asia and Eastern Europe to the bedding and mattress industry – with local offices and personal service.",
     "skip": "Skip to content",
@@ -151,6 +155,8 @@ T["en"] = {
 }
 
 T["es"] = {
+    "cats": ["Ropa de cama", "Accesorios para colchones", "Artículos promocionales"],
+    "hero_alt": "Dormitorio con cama, almohadas y edredones",
     "title": "NA Group – Aprovisionamiento para la industria de ropa de cama y colchones",
     "description": "NA Group suministra componentes y productos terminados de Asia y Europa del Este a la industria de ropa de cama y colchones, con oficinas propias y atención personal.",
     "skip": "Ir al contenido",
@@ -207,6 +213,8 @@ T["es"] = {
 }
 
 T["zh"] = {
+    "cats": ["床上用品", "床垫配件", "促销礼品"],
+    "hero_alt": "带枕头和被子的卧室",
     "title": "NA Group – 床上用品与床垫行业采购服务",
     "description": "NA Group 为床上用品和床垫行业提供来自亚洲和东欧的配件及成品，在当地设有自有办事处，提供一对一服务。",
     "skip": "跳至正文",
