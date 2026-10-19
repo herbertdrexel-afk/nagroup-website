@@ -38,11 +38,14 @@ public/             Fertige Website – genau das landet auf dem Server
 
 ## Bilder (wichtig)
 
-Die Bilder in `public/assets/img/` (Logos, Fotos, Titelbilder) stammen von der alten Website und liegen
-**nur auf dem Server**, nicht in GitHub:
+Die Bilder (Logos, Fotos, Titelbilder, WebP) stammen von der alten Website und liegen
+**nur auf dem Server** in `/home/nagroup/site-assets/img/`, nicht in GitHub.
+`.cpanel.yml` kopiert sie bei jedem Deploy nach `assets/img/`.
 
-- `/home/nagroup/repositories/nagroup-website/public/assets/img/` (wird bei jedem Deploy mitkopiert)
-- `/home/nagroup/neu.nagroup.biz/assets/img/`
+Bilder ins Repo übernehmen (empfohlen):
+1. Ordner im cPanel-Dateimanager als ZIP herunterladen.
+2. Auf GitHub nach `public/assets/img/` hochladen.
+3. Die letzte Zeile in `.cpanel.yml` (Kopie aus site-assets) entfernen.
 
-Empfehlung: den Ordner einmal im cPanel-Dateimanager als ZIP herunterladen und per GitHub
-„Add file → Upload files“ nach `public/assets/img/` hochladen – dann ist alles versioniert.
+Hinweis: Im Repo-Ordner auf dem Server dürfen keine Dateien liegen, die nicht in Git sind –
+sonst verweigert cPanel das Deployment.

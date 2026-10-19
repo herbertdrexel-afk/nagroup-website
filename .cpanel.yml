@@ -4,5 +4,7 @@ deployment:
     # Zielordner der Website. Testphase: neu.nagroup.biz
     # Für den Livegang auf /home/nagroup/public_html/ umstellen.
     - export DEPLOYPATH=/home/nagroup/neu.nagroup.biz/
-    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/assets
     - /bin/cp -R public/. $DEPLOYPATH
+    # Bilder liegen (noch) nicht im Repo, sondern auf dem Server:
+    - /bin/cp -R /home/nagroup/site-assets/img $DEPLOYPATH/assets/
